@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Material Design Theme
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+// Resets
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+}
+
+/* Icons */
+.md-icon-20 {
+    font-size: 20px;
+}
+
+/* Tooblar */
+md-toolbar-row {
+    justify-content: space-between; // this is based on flex
+}
+
+/* Sidenav */
+md-sidenav-container{
+    height: 100vh; // view port height units
+}
+md-sidenav{
+    width: 600px;
+}
+
+/* Buttons */
+[md-raised-button]{
+    width: 100%;
+}
+

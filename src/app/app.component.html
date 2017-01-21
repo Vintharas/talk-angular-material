@@ -1,3 +1,54 @@
-<h1>
-  {{title}}
-</h1>
+<div [class.dark-theme]="isDarkTheme">
+  <!-- toolbar -->
+  <md-toolbar color="primary" class="md-elevation-z6">
+    <span>
+      <md-icon class="md-icon-20">favorite</md-icon>
+      <span>Derek Zoolander Center For Models Who Can't Find Love</span>
+    </span>
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+
+  <!-- menu -->
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item (click)="openDialog()">Settings</button>
+    <button md-menu-item (click)="isDarkTheme=!isDarkTheme">Toggle Theme</button>
+    <button md-menu-item>Help</button>
+  </md-menu>
+  
+  <md-sidenav-container>
+    <!-- sidenav -->
+    <md-sidenav align="end" mode="side" #sidenav class="md-elevation-z3">
+      <md-tab-group>
+        <md-tab label="Feed">
+          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
+        </md-tab>
+        <md-tab label="Photos">
+          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
+        </md-tab>
+        <md-tab label="About">
+          <p>Name: {{selectedModel.name}}</p>
+          <p>Status: {{selectedModel.status}}</p>
+          <p>About: {{selectedModel.about}}</p>
+          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
+        </md-tab>
+      </md-tab-group>
+    </md-sidenav>
+
+    <!-- main content -->
+    <md-grid-list cols="4" rowHeight="200px">
+      <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows">
+        <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}">
+        <md-grid-tile-footer>
+          <h3 md-line>{{model.name}}</h3>
+          <span md-line>{{model.status}}</span>
+          <button md-icon-button (click)="showModelDetails(model)">
+            <md-icon>info</md-icon>
+          </button>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-sidenav-container>
+
+</div>

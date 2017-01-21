@@ -1,0 +1,25 @@
+// custom theme
+@import "~@angular/material/core/theming/all-theme";
+
+// core 
+@include md-core();
+
+// palette of colors
+$primary: md-palette($md-cyan);
+$accent: md-palette($md-amber);
+
+// create basic light theme with this palette
+$theme: md-light-theme($primary, $accent);
+
+// create angular theme
+@include angular-material-theme($theme);
+
+// gated themes
+// anything under these css class will have the dark theme
+.dark-theme{
+    $dark-primary: md-palette($md-pink, 700);
+    $dark-accent: md-palette($md-blue-grey);
+    $dark-theme: md-dark-theme($dark-primary, $dark-accent);
+
+    @include angular-material-theme($dark-theme);
+}
