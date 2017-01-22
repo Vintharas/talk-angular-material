@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
     // open dialog
-    this.dialog.open(SettingsDialogComponent, config);
+    const dialog = this.dialog.open(SettingsDialogComponent, config);
   }
 
   addMessage(){
@@ -33,7 +33,10 @@ export class AppComponent implements OnInit {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
     // open dialog
-    this.dialog.open(MessageDialogComponent, config);
+    const dialog:any = this.dialog.open(MessageDialogComponent, config);
+    // pass data to dialog
+    dialog.selectedModel = this.selectedModel;
+    console.log(dialog);
   }
 
   showModelDetails(model:Model) {
@@ -69,14 +72,19 @@ export class SettingsDialogComponent{
 export class MessageDialogComponent{
   content:string = "";
 
-  constructor(private modelsService: ModelsService, private dialogRef: MdDialogRef<MessageDialogComponent>) {}
+  constructor(private dialogRef: MdDialogRef<MessageDialogComponent>) {
+  }
 
   addMessage(){
-    const currentModel:Model = this.modelsService.getModels()[0];
-    currentModel.messages.push({
-      who: 'Jaime',
-      message: this.content
-    });
+    const selectedModel = (<MdDialogRef<MessageDialogComponent> & ISelectedModel> this.dialogRef).selectedModel;
+    selectedModel.messages.push({
+        who: 'Jaime',
+        message: this.content
+      });
     this.dialogRef.close();
   }
+}
+
+interface ISelectedModel{
+  selectedModel: Model;
 }
