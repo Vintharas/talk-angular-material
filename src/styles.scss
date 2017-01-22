@@ -15,7 +15,27 @@ html, body{
     font-size: 20px;
 }
 
+.tab-action{
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    button{
+        margin-bottom: 12px;
+    }
+}
+
+/* Cards */
+md-card {
+    margin: 20px;
+    width: 80%;
+}
+
 /* Tooblar */
+md-toolbar{
+    z-index: 10;
+}
 md-toolbar-row {
     justify-content: space-between; // this is based on flex
 }
@@ -28,8 +48,7 @@ md-sidenav{
     width: 600px;
 }
 
-/* Buttons */
-[md-raised-button]{
-    width: 100%;
+/* Tabs */
+.md-tab-body-content{
+    height: 80vh;
 }
-

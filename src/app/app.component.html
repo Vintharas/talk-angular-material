@@ -1,4 +1,4 @@
-<div [class.dark-theme]="isDarkTheme">
+<div [class.dark-theme]="isDarkTheme" class="flex-container" fxLayout="column" fxLayoutAlign="center stretch">
   <!-- toolbar -->
   <md-toolbar color="primary" class="md-elevation-z6">
     <span>
@@ -17,28 +17,60 @@
     <button md-menu-item>Help</button>
   </md-menu>
   
+  <div class="app-sidenav" fxFlex>
   <md-sidenav-container>
     <!-- sidenav -->
     <md-sidenav align="end" mode="side" #sidenav class="md-elevation-z3">
       <md-tab-group>
-        <md-tab label="Feed">
-          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
+        <md-tab label="About Me">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+            <md-card>
+              <md-card-title>Status</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel.status}}</p>
+              </md-card-content>
+            </md-card>
+            <md-card>
+              <md-card-title>About</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel.about}}</p>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div class="tab-action">
+            <button md-fab (click)="sidenav.close()" color="warning">
+              <md-icon>close</md-icon>
+            </button>
+          </div>
+        </md-tab>
+        <md-tab label="Messages">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+            <md-card *ngFor="let message of selectedModel.messages">
+              <md-card-subtitle>{{message.who}} says:</md-card-subtitle>
+              <md-card-content>{{message.message}}</md-card-content>
+            </md-card>
+          </div>
+
+          <div class="tab-action">
+            <div class="flex-container" fxLayout="column" fxLayoutAlign="space-between center">
+              <button md-mini-fab (click)="sidenav.close()" color="warning">
+                <md-icon>close</md-icon>
+              </button>
+              <button md-fab (click)="addMessage()" color="primary">
+                <md-icon>add</md-icon>
+              </button>
+            </div>
+          </div>
         </md-tab>
         <md-tab label="Photos">
-          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
-        </md-tab>
-        <md-tab label="About">
-          <p>Name: {{selectedModel.name}}</p>
-          <p>Status: {{selectedModel.status}}</p>
-          <p>About: {{selectedModel.about}}</p>
-          <button md-raised-button (click)="sidenav.close()" color="accent">close</button>
+          some photos here...
         </md-tab>
       </md-tab-group>
     </md-sidenav>
 
     <!-- main content -->
     <md-grid-list cols="4" rowHeight="200px">
-      <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows">
+      <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
         <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}">
         <md-grid-tile-footer>
           <h3 md-line>{{model.name}}</h3>
@@ -50,5 +82,6 @@
       </md-grid-tile>
     </md-grid-list>
   </md-sidenav-container>
+  </div>
 
 </div>
