@@ -1,3 +1,9 @@
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+                    
+
 // This file includes polyfills needed by Angular and is loaded before
 // the app. You can add your own extra polyfills to this file.
 import 'core-js/es6/symbol';
@@ -17,3 +23,9 @@ import 'core-js/es6/reflect';
 
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
+
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+            

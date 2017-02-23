@@ -1,3 +1,9 @@
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+                    
+
 import './polyfills.ts';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -10,3 +16,9 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+            

@@ -1,8 +1,14 @@
-<div [class.dark-theme]="isDarkTheme" class="flex-container" fxLayout="column" fxLayoutAlign="center stretch">
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+-->
+
+<section [class.dark-theme]="isDarkTheme" 
+     class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
   <!-- toolbar -->
-  <md-toolbar color="primary" class="md-elevation-z6">
+  <md-toolbar color="primary" class="mat-elevation-z7">
     <span>
-      <md-icon class="md-icon-20">favorite</md-icon>
+      <md-icon class="mat-icon-20">favorite</md-icon>
       <span>Derek Zoolander Center For Models Who Can't Find Love</span>
     </span>
     <button md-icon-button [md-menu-trigger-for]="menu">
@@ -14,26 +20,32 @@
   <md-menu x-position="before" #menu="mdMenu">
     <button md-menu-item (click)="openDialog()">Settings</button>
     <button md-menu-item (click)="isDarkTheme=!isDarkTheme">Toggle Theme</button>
+    <button md-menu-item>Free Hugs!</button>
     <button md-menu-item>Help</button>
   </md-menu>
   
-  <div class="app-sidenav" fxFlex>
-  <md-sidenav-container>
+  <md-sidenav-container fxFlex>
     <!-- sidenav -->
-    <md-sidenav align="end" mode="side" #sidenav class="md-elevation-z3">
+    <md-sidenav align="end" mode="side" #sidenav class="mat-elevation-z6">
       <md-tab-group>
         <md-tab label="About Me">
-          <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <md-card>
+              <md-card-title>Name</md-card-title>
+              <md-card-content>
+                <p>{{selectedModel?.name}}</p>
+              </md-card-content>
+            </md-card>
             <md-card>
               <md-card-title>Status</md-card-title>
               <md-card-content>
-                <p>{{selectedModel.status}}</p>
+                <p>{{selectedModel?.status}}</p>
               </md-card-content>
             </md-card>
             <md-card>
               <md-card-title>About</md-card-title>
               <md-card-content>
-                <p>{{selectedModel.about}}</p>
+                <p>{{selectedModel?.about}}</p>
               </md-card-content>
             </md-card>
           </div>
@@ -44,8 +56,8 @@
           </div>
         </md-tab>
         <md-tab label="Messages">
-          <div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
-            <md-card *ngFor="let message of selectedModel.messages">
+          <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
+            <md-card *ngFor="let message of selectedModel?.messages">
               <md-card-subtitle>{{message.who}} says:</md-card-subtitle>
               <md-card-content>{{message.message}}</md-card-content>
             </md-card>
@@ -69,7 +81,7 @@
     </md-sidenav>
 
     <!-- main content -->
-    <md-grid-list cols="4" rowHeight="200px">
+    <md-grid-list cols="4" rowHeight="250px">
       <md-grid-tile *ngFor="let model of models" [rowspan]="model.rows" [colspan]="model.cols">
         <img src="assets/{{model.name}}.png" alt="photo of the super model {{model.name}}">
         <md-grid-tile-footer>
@@ -82,6 +94,13 @@
       </md-grid-tile>
     </md-grid-list>
   </md-sidenav-container>
-  </div>
 
-</div>
+</section>
+
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+-->
+            

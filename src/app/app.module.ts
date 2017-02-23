@@ -1,9 +1,15 @@
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+                    
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent, SettingsDialogComponent, MessageDialogComponent } from './app.component';
+import { AppComponent, SettingsDialogComponent, AddMessageComponent } from './app.component';
 import { ModelsService } from './models.service';
 
 import { MaterialModule} from '@angular/material';
@@ -13,18 +19,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     AppComponent,
     SettingsDialogComponent,
-    MessageDialogComponent
+    AddMessageComponent
   ],
   entryComponents: [
     AppComponent,
     SettingsDialogComponent,
-    MessageDialogComponent
+    AddMessageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     FlexLayoutModule.forRoot()
   ],
   providers: [
@@ -33,3 +39,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+            

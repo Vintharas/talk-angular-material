@@ -1,25 +1,44 @@
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+                    
+
 // custom theme
 @import "~@angular/material/core/theming/all-theme";
 
 // core 
-@include md-core();
+@include mat-core();
 
-// palette of colors
-$primary: md-palette($md-cyan);
-$accent: md-palette($md-amber);
+// theme colors
+$primary: mat-palette($mat-cyan);
+$accent: mat-palette($mat-pink);
+$warn: mat-palette($mat-amber);
 
-// create basic light theme with this palette
-$theme: md-light-theme($primary, $accent);
-
-// create angular theme
+$theme: mat-light-theme($primary, $accent, $warn);
+// create theme from palettes
 @include angular-material-theme($theme);
 
 // gated themes
 // anything under these css class will have the dark theme
 .dark-theme{
-    $dark-primary: md-palette($md-pink, 700);
-    $dark-accent: md-palette($md-blue-grey);
-    $dark-theme: md-dark-theme($dark-primary, $dark-accent);
+    // theme colors
+    $primary-dark: mat-palette($mat-pink, 700);
+    $accent-dark: mat-palette($mat-green);
+    $warn-dark: mat-palette($mat-red);
 
-    @include angular-material-theme($dark-theme);
+    $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+
+    // create theme from palettes
+    @include angular-material-theme($theme-dark);
 }
+
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+            

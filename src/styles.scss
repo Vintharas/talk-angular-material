@@ -1,3 +1,11 @@
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+                    
+
 /* You can add global styles to this file, and also import other style files */
 
 // Material Design Theme
@@ -10,8 +18,13 @@ html, body{
     font-family: Roboto, sans-serif;
 }
 
+// app shell
+.app {
+    height: 100vh; // view port height units
+}
+
 /* Icons */
-.md-icon-20 {
+.mat-icon-20 {
     font-size: 20px;
 }
 
@@ -29,7 +42,6 @@ html, body{
 /* Cards */
 md-card {
     margin: 20px;
-    width: 80%;
 }
 
 /* Tooblar */
@@ -41,14 +53,19 @@ md-toolbar-row {
 }
 
 /* Sidenav */
-md-sidenav-container{
-    height: 100vh; // view port height units
-}
-md-sidenav{
-    width: 600px;
+md-sidenav {
+    width: 40vw;
 }
 
 /* Tabs */
-.md-tab-body-content{
-    height: 80vh;
+.mat-tab-body-content {
+    height: calc(100vh - 64px - 48px);
 }
+
+
+
+/* 
+    Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+*/
+            

@@ -1,3 +1,9 @@
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+                    
+
 import { Component, ViewChild, ViewContainerRef, OnInit} from '@angular/core';
 import { MdSidenav, MdDialog, MdDialogConfig, MdDialogRef } from '@angular/material';
 import { Model, Message } from './model';
@@ -9,18 +15,20 @@ import { ModelsService } from './models.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav') sidenav : MdSidenav;
-  models:Model[];
-  selectedModel = {};
+  @ViewChild('sidenav') sidenav: MdSidenav;
+  models: Model[];
+  selectedModel: Model;
   isDarkTheme: boolean = false;
 
-  constructor(public dialog:MdDialog, public vcr: ViewContainerRef, private modelsService: ModelsService){ }
+  constructor(private dialog: MdDialog,
+              private vcr: ViewContainerRef,
+              private modelsService: ModelsService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.models = this.modelsService.getModels();
   }
 
-  openDialog(){
+  openDialog() {
     // dialog config
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
@@ -28,12 +36,12 @@ export class AppComponent implements OnInit {
     const dialog = this.dialog.open(SettingsDialogComponent, config);
   }
 
-  addMessage(){
+  addMessage() {
     // dialog config
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
     // open dialog
-    const dialog:any = this.dialog.open(MessageDialogComponent, config);
+    const dialog:any = this.dialog.open(AddMessageComponent, config);
     // pass data to dialog
     dialog.selectedModel = this.selectedModel;
     console.log(dialog);
@@ -48,7 +56,7 @@ export class AppComponent implements OnInit {
 
 
 @Component({
-  selector: 'settings-dialog',
+  selector: 'app-settings',
   template: `
   <label>Would you like to receive notifications?</label>
   <md-slide-toggle></md-slide-toggle>
@@ -59,24 +67,24 @@ export class SettingsDialogComponent{
 }
 
 @Component({
-  selector: 'message-dialog',
+  selector: 'add-message',
   template:`
   <form (submit)="addMessage()">
     <md-input-container>
-      <input md-input placeholder="Message" name="content" [(ngModel)]="content">
+      <input mdInput placeholder="Message" name="content" [(ngModel)]="content">
     </md-input-container>
     <button md-raised-button color="primary">Add Message</button>
   </form>
   `
 })
-export class MessageDialogComponent{
-  content:string = "";
+export class AddMessageComponent {
+  content = "";
 
-  constructor(private dialogRef: MdDialogRef<MessageDialogComponent>) {
+  constructor(private dialogRef: MdDialogRef<AddMessageComponent>) {
   }
 
-  addMessage(){
-    const selectedModel = (<MdDialogRef<MessageDialogComponent> & ISelectedModel> this.dialogRef).selectedModel;
+  addMessage() {
+    const selectedModel = (<MdDialogRef<AddMessageComponent> & ISelectedModel> this.dialogRef).selectedModel;
     selectedModel.messages.push({
         who: 'Jaime',
         message: this.content
@@ -85,6 +93,11 @@ export class MessageDialogComponent{
   }
 }
 
-interface ISelectedModel{
+interface ISelectedModel {
   selectedModel: Model;
 }
+
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+// Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
+            
