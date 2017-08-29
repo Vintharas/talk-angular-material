@@ -1,71 +1,53 @@
-
-
-/* 
-    Copyright 2016 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
-*/
-                    
-
 /* You can add global styles to this file, and also import other style files */
 
-// Material Design Theme
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-// Resets
-html, body{
-    margin: 0;
+
+// some basic resets
+body {
     padding: 0;
+    margin: 0;
     font-family: Roboto, sans-serif;
 }
 
-// app shell
-.app {
-    height: 100vh; // view port height units
+.app{
+    height: 100vh;    // emmet h100vh
 }
 
-/* Icons */
-.mat-icon-20 {
-    font-size: 20px;
+md-toolbar {
+  z-index: 10;     // emmet z10
+}
+
+md-toolbar-row{
+    justify-content: space-between;
+}
+
+
+md-sidenav {
+    width: 40vw;   // emmet w40vw
+}
+
+md-card {
+  margin: 12px;
+}
+
+$md-toolbar-height: 64px;
+$md-tab-header-height: 48px;
+.mat-tab-body-content{
+    height: calc(100vh - #{$md-tab-header-height} - #{$md-toolbar-height});
 }
 
 .tab-action{
-    display: inline-block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  //display: inline-block;
+  //position: fixed;
+  bottom: 20px;
+  right: 20px;
 
-    button{
-        margin-bottom: 12px;
-    }
-}
-
-/* Cards */
-md-card {
-    margin: 20px;
-}
-
-/* Tooblar */
-md-toolbar{
-    z-index: 10;
-}
-md-toolbar-row {
-    justify-content: space-between; // this is based on flex
-}
-
-/* Sidenav */
-md-sidenav {
-    width: 40vw;
-}
-
-/* Tabs */
-.mat-tab-body-content {
-    height: calc(100vh - 64px - 48px);
+  button{
+      margin-bottom: 12px;
+  }
 }
 
 
 
-/* 
-    Copyright 2016 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
-*/
-            
+
