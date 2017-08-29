@@ -1,17 +1,17 @@
-<!-- 
+<!--
 Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
 -->
 
-<section [class.dark-theme]="isDarkTheme" 
+<section [class.dark-theme]="isDarkTheme"
      class="app flex-container" fxLayout="column" fxLayoutAlign="start stretch">
   <!-- toolbar -->
-  <md-toolbar color="primary" class="mat-elevation-z7">
+  <md-toolbar color="primary" class="mat-elevation-z10">
     <span>
       <md-icon class="mat-icon-20">favorite</md-icon>
       <span>Derek Zoolander Center For Models Who Can't Find Love</span>
     </span>
-    <button md-icon-button [md-menu-trigger-for]="menu">
+    <button md-icon-button [mdMenuTriggerFor]="menu">
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
@@ -23,7 +23,7 @@ Use of this source code is governed by an MIT-style license that can be found in
     <button md-menu-item>Free Hugs!</button>
     <button md-menu-item>Help</button>
   </md-menu>
-  
+
   <md-sidenav-container fxFlex>
     <!-- sidenav -->
     <md-sidenav align="end" mode="side" #sidenav class="mat-elevation-z6">
@@ -50,7 +50,7 @@ Use of this source code is governed by an MIT-style license that can be found in
             </md-card>
           </div>
           <div class="tab-action">
-            <button md-fab (click)="sidenav.close()" color="warning">
+            <button md-fab (click)="sidenav.close()" color="warn">
               <md-icon>close</md-icon>
             </button>
           </div>
@@ -65,7 +65,7 @@ Use of this source code is governed by an MIT-style license that can be found in
 
           <div class="tab-action">
             <div class="flex-container" fxLayout="column" fxLayoutAlign="space-between center">
-              <button md-mini-fab (click)="sidenav.close()" color="warning">
+              <button md-mini-fab (click)="sidenav.close()" color="warn">
                 <md-icon>close</md-icon>
               </button>
               <button md-fab (click)="addMessage()" color="primary">
@@ -87,7 +87,7 @@ Use of this source code is governed by an MIT-style license that can be found in
         <md-grid-tile-footer>
           <h3 md-line>{{model.name}}</h3>
           <span md-line>{{model.status}}</span>
-          <button md-icon-button (click)="showModelDetails(model)">
+          <button md-icon-button (click)="showDetails(model)">
             <md-icon>info</md-icon>
           </button>
         </md-grid-tile-footer>
@@ -99,8 +99,8 @@ Use of this source code is governed by an MIT-style license that can be found in
 
 
 
-<!-- 
+<!--
 Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
 -->
-            
+
