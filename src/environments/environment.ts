@@ -2,7 +2,7 @@
 
 // Copyright 2016 Google Inc. All Rights Reserved.
 // Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
-                    
+
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -17,4 +17,3 @@ export const environment = {
 
 // Copyright 2016 Google Inc. All Rights Reserved.
 // Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at https://angular.io/license
-            
